@@ -3,6 +3,7 @@
   <head>
     <title>TokoOnline</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag asset_path('favicon-16.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -12,6 +13,13 @@
   </head>
 
   <body>
+    <%= render partial: "shared/landing_navbar" %>
+    <%= render partial: "shared/landing_flash" %>
+
+    
+
       <%= yield %>
+
+      <%= render partial: "shared/landing_footer" %>
   </body>
 </html>
