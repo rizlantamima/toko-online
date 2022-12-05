@@ -1,9 +1,15 @@
 class ProductCategoriesController < ApplicationController
+  layout "admin"
   before_action :set_product_category, only: %i[ show edit update destroy ]
 
   # GET /product_categories or /product_categories.json
   def index
     @product_categories = ProductCategory.all
+    if params[:q].present?
+      @product_categories = nil
+      query = params[:q]
+      @product_categories = ProductCategory.search(query)
+    end
   end
 
   # GET /product_categories/1 or /product_categories/1.json
